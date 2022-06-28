@@ -1,1 +1,1 @@
-This project is about Python - Hello, World
+This project is about Python - Hello, World project
