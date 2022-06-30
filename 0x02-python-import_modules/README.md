@@ -1,1 +1,1 @@
-This is project aboutPython - import & modules
+this project is about Python-import modules project
