@@ -1,26 +1,15 @@
 #!/usr/bin/python3
 """
-eturns a list of lists of integers
-representing the Pascal’s triangle of n
+Pascal triangle def.
 """
 
 
 def pascal_triangle(n):
-    """
-    eturns a list of lists of integers
-    representing the Pascal’s triangle of n
-    """
+    """function to make it"""
     if n <= 0:
         return []
-    res = []
-    l = []
-    for x in range(n):
-        row = []
-        for y in range(x + 1):
-            if x == 0 or y == 0 or x == y:
-                row.append(1)
-            else:
-                row.append(l[y] + l[y - 1])
-        l = row
-        res.append(row)
-    return res
+    p_t = [[1]]
+    for i in range(2, n+1):
+        tmp = [0] + p_t[i-2] + [0]
+        p_t.append([sum(par) for par in zip(tmp, tmp[1:])])
+    return p_t
