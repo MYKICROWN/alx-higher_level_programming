@@ -1,16 +1,17 @@
 #!/usr/bin/python3
-"""
-adds all arguments to a Python list, and then save them to a file
-"""
+'''task 7 module'''
+
+
 import sys
-
-
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
-open("add_item.json", "a")
+arglist = list(sys.argv[1:])
+
 try:
-    l = load_from_json_file("add_item.json")
-except ValueError:
-    l = []
-save_to_json_file(l + sys.argv[1:], "add_item.json")
+    old_data = load_from_json_file('add_item.json')
+except Exception:
+    old_data = []
+
+old_data.extend(arglist)
+save_to_json_file(old_data, 'add_item.json')
